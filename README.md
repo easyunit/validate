@@ -43,3 +43,4 @@
 | IDCollect       | 验证ID集必须为以逗号分隔的正整数 |
 | PagingParameter | 验证分页参数                     |
 
+- Hook Test
