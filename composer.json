@@ -1,0 +1,24 @@
+{
+  "name": "easyunit/validate",
+  "description": "validate package",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "easyunit",
+      "email": "api_php@163.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Easyunit\\": "src/",
+      "thinkphp\\": "src/thinkphp/"
+    }
+  },
+  "require": {
+    "php": ">=7.1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0"
+  }
+}
