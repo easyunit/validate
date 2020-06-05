@@ -53,7 +53,9 @@ class BaseValidate extends Validate
 
     protected function goCheck($scene = null)
     {
-        if (empty($_REQUEST)) {
+        $input = json_decode(file_get_contents('php://input'), true);
+
+        if (empty($input)) {
             json(10000, '参数不允许为空');
         }
 
@@ -63,9 +65,10 @@ class BaseValidate extends Validate
             $this->scene($scene);   // 使用指定的验证场景
         }
 
+
         try {
-            // 如果前端传递了参数，但是没接到，请修改请求类型 'Content-Type':'application/x-www-form-urlencoded' 小程序等 Request Payload会改FromData
-            $result = $this->check($_REQUEST);
+            // 接收原始数据流 兼容FromData和RequestPlayload
+            $result = $this->check($input);
         } catch (ValidateException $e) {
             json(10004, '验证器通用异常');
         } catch (\Throwable $th) {
