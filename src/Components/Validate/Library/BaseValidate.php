@@ -64,6 +64,7 @@ class BaseValidate extends Validate
         }
 
         try {
+            // 如果前端传递了参数，但是没接到，请修改请求类型 'Content-Type':'application/x-www-form-urlencoded' 小程序等 Request Payload会改FromData
             $result = $this->check($_REQUEST);
         } catch (ValidateException $e) {
             json(10004, '验证器通用异常');
