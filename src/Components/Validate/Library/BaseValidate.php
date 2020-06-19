@@ -56,7 +56,8 @@ class BaseValidate extends Validate
         $input = json_decode(file_get_contents('php://input'), true);
 
         if (empty($input)) {
-            json(10000, '参数不允许为空');
+            // json(10000, '参数不允许为空');
+            $input = $_REQUEST;
         }
 
         $this->batch();     // 参数批量验证
